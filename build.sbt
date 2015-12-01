@@ -16,4 +16,13 @@ libraryDependencies ++= Seq(
   "com.amazonaws"  % "aws-java-sdk-s3"     % awsSdkVersion
 )
 
+//initialize := {
+//  val required = "1.7"
+//  val current  = sys.props("java.specification.version")
+//  assert(current == required, s"Unsupported JDK: java.specification.version $current != $required")
+//}
+
+isSnapshot := true
+javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
+scalacOptions ++= Seq("-target:jvm-1.7")
 javaVersionPrefix in javaVersionCheck := Some("1.7")

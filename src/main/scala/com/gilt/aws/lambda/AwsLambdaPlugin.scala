@@ -1,5 +1,6 @@
 package com.gilt.aws.lambda
 
+import com.amazonaws.util.json.JSONObject
 import sbt._
 
 object AwsLambdaPlugin extends AutoPlugin {
@@ -16,6 +17,7 @@ object AwsLambdaPlugin extends AutoPlugin {
     val awsLambdaTimeout = settingKey[Option[Int]]("The Lambda timeout length in seconds (1-300)")
     val awsLambdaMemory = settingKey[Option[Int]]("The amount of memory in MB for the Lambda function (128-1536, multiple of 64)")
     val lambdaHandlers = settingKey[Seq[(String, String)]]("A sequence of pairs of Lambda function names to handlers (for multiple handlers in one jar)")
+    val lambdaConfigs = settingKey[Seq[(String, JSONObject)]]("A sequence of pairs of Lambda function names to handlers (for multiple handlers in one jar)")
   }
 
   import autoImport._
